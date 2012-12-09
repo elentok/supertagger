@@ -26,7 +26,20 @@ function find_js_methods() {
   # 5 - definition
 }
 
+function find_coffee_methods() {
+  grep -R --include '*.coffee' -E \
+    '^[ \t]*[a-zA-Z_\.0-9]+ *: *(\([^\)]+\))? *[=-]>' . | \
+    sed -E "s/^([^:]*):[ 	]*(.*\.)?([^=:\. ]+)( *[:=] *)(.*)$/\3	\1	\/\2\3\4\5\//"
+
+  # 1 - filename
+  # 2 - namespace
+  # 3 - name
+  # 4 - space
+  # 5 - definition
+}
+
 (
 find_extended_classes
 find_js_methods
+find_coffee_methods
 ) | sort
