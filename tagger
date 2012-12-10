@@ -3,7 +3,42 @@
 DIR=$(dirname "${BASH_SOURCE[0]}")
 DIR=$(cd -P $DIR && pwd)
 
+ROOT_PATH="."
+TAGFILE=tags
+
+function find_parent_tagfile() {
+  path=''
+  tagfile=tags
+  while [ 1 ]; do
+    path="../$path"
+    abspath=`(cd $path; pwd)`
+    if [ "$abspath" == "/" ]; then
+      return
+    fi
+
+    # search for existing tags file
+    if [ -e "$path$tagfile" ]; then
+      TAGFILE="$path$tagfile"
+      break
+    fi
+
+    # search for .git folder
+    if [ -d "$path.git" ]; then
+      TAGFILE="${path}tags"
+      break
+    fi
+    echo $path
+  done
+
+  ROOT_PATH=$path
+}
+
+find_parent_tagfile
+
+echo "Generating tags in `(cd $ROOT_PATH; pwd)`/tags"
+
 (
+  cd $ROOT_PATH
   ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=*.js -f - .
   $DIR/jstagger 
-) | sort > tags
+) | sort > $TAGFILE
