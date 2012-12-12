@@ -1,0 +1,15 @@
+Animal	./input.coffee	/Animal = Backbone.extend/
+Cat	./input.coffee	/Animal.Cat = Animal.extend/
+Class1	./input.js	/Class1 = Backbone.extend/
+Class2	./input.js	/Namespace1.Class2 = L.Class.extend/
+Dog	./input.coffee	/Animal.Dog = Animal.extend/
+doSomething	./input.js	/doSomething: function(someValue) {/
+initialize	./input.coffee	/initialize: (@name) ->/
+initialize	./input.js	/initialize: function() {/
+method1	./input.coffee	/method1: ->/
+method2	./input.coffee	/method2: =>/
+method3	./input.coffee	/method3: ->/
+method4	./input.coffee	/method4: ->/
+speak	./input.coffee	/speak: ->/
+speak	./input.coffee	/speak: ->/
+speak	./input.coffee	/speak: ->/
