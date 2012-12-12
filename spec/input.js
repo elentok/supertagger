@@ -7,3 +7,10 @@ Namespace1.Class2 = L.Class.extend({
   doSomething: function(someValue) {
   }
 });
+
+Class1.jsStaticMethod = function() {
+};
+
+Namespace3.JsStaticClass = {
+  value1: 123
+}

@@ -2,10 +2,14 @@ Animal	./input.coffee	/Animal = Backbone.extend/
 Cat	./input.coffee	/Animal.Cat = Animal.extend/
 Class1	./input.js	/Class1 = Backbone.extend/
 Class2	./input.js	/Namespace1.Class2 = L.Class.extend/
+CoffeeStaticClass	./input.coffee	/Namespace3.CoffeeStaticClass =/
 Dog	./input.coffee	/Animal.Dog = Animal.extend/
+JsStaticClass	./input.js	/Namespace3.JsStaticClass = {/
+coffeeStaticMethod	./input.coffee	/AnObject.coffeeStaticMethod = ->/
 doSomething	./input.js	/doSomething: function(someValue) {/
 initialize	./input.coffee	/initialize: (@name) ->/
 initialize	./input.js	/initialize: function() {/
+jsStaticMethod	./input.js	/Class1.jsStaticMethod = function() {/
 method1	./input.coffee	/method1: ->/
 method2	./input.coffee	/method2: =>/
 method3	./input.coffee	/method3: ->/

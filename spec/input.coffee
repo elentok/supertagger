@@ -22,3 +22,9 @@ class Namespace1.SomeOtherClass
 
 class Namespace1.ExtendingClass extends SomeClass
   method4: ->
+
+AnObject.coffeeStaticMethod = ->
+  console.log "hello"
+
+Namespace3.CoffeeStaticClass =
+  value1: 123

@@ -5,5 +5,5 @@ DIR=$(cd -P $DIR && pwd)
 
 (
   cd $DIR
-  ../jstagger | diff -qsy expected-tags -
+  ../jstagger | git diff --color-words --no-index expected-tags -
 )
