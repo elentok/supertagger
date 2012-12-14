@@ -3,7 +3,7 @@ SuperTagger
 
 Generates ctags-compatible tags for javascript, coffeescript, css and scss,
 
-The 'tagger' command
+The 'supertagger' command
 --------------------
 
 * looks for an existing "tags" file in this directory or a parent directory
