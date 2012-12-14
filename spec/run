@@ -3,9 +3,17 @@
 DIR=$(dirname "${BASH_SOURCE[0]}")
 DIR=$(cd -P $DIR && pwd)
 
-(
-  cd $DIR
-  #../jstagger | git diff --color-words --no-index expected-tags -
-  ../jstagger > /tmp/jstagger.output
-  vimdiff -R expected-tags /tmp/jstagger.output
-)
+function run_test() {
+  type=$1
+  echo "Testing $type"
+  (
+    cd $DIR
+    ../${type}tagger > /tmp/tagger.output
+    if [ "`diff -q expected-$type-tags /tmp/tagger.output`" != "" ]; then
+      vimdiff -R expected-$type-tags /tmp/tagger.output
+    fi
+  )
+}
+
+
+run_test js
