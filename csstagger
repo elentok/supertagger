@@ -10,4 +10,4 @@ function find_mixins() {
   # 4 - definition
 }
 
-find_mixins | sort
+find_mixins

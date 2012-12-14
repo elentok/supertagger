@@ -74,11 +74,9 @@ function find_static_js_objects() {
   # 5 - definition
 }
 
-(
 find_extended_classes
 find_static_coffee_objects
 find_static_js_objects
 find_js_methods
 find_coffee_classes
 find_coffee_methods
-) | sort
