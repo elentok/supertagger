@@ -27,7 +27,6 @@ function find_parent_tagfile() {
       TAGFILE="${path}tags"
       break
     fi
-    echo $path
   done
 
   ROOT_PATH=$path
