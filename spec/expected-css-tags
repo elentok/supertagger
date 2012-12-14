@@ -1,0 +1,2 @@
+mixin1	./input.scss	/@mixin mixin1 {/
+mixin2	./input.scss	/@mixin mixin2($var1) {/

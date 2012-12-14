@@ -40,4 +40,5 @@ echo "Generating tags in `(cd $ROOT_PATH; pwd)`/tags"
   cd $ROOT_PATH
   ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=*.js -f - .
   $DIR/jstagger 
+  $DIR/csstagger 
 ) | sort > $TAGFILE

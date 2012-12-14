@@ -1,0 +1,13 @@
+#!/bin/bash
+
+function find_mixins() {
+  grep -R --include '*.scss' '^[ 	]*@mixin ' . | \
+    sed -E "s/^([^:]*): *(@mixin +)([a-zA-Z0-9\-]+)(.*)$/\3	\1	\/\2\3\4\//"
+
+  # 1 - filename
+  # 2 - mixin prefix
+  # 3 - mixin name
+  # 4 - definition
+}
+
+find_mixins | sort
