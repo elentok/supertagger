@@ -4,7 +4,10 @@ Class1	./input.js	/Class1 = Backbone.extend/
 Class2	./input.js	/Namespace1.Class2 = L.Class.extend/
 CoffeeStaticClass	./input.coffee	/Namespace3.CoffeeStaticClass =/
 Dog	./input.coffee	/Animal.Dog = Animal.extend/
+ExtendingClass	./input.coffee	/class Namespace1.ExtendingClass extends SomeClass/
 JsStaticClass	./input.js	/Namespace3.JsStaticClass = {/
+SomeClass	./input.coffee	/class SomeClass/
+SomeOtherClass	./input.coffee	/class Namespace1.SomeOtherClass/
 coffeeStaticMethod	./input.coffee	/AnObject.coffeeStaticMethod = ->/
 doSomething	./input.js	/doSomething: function(someValue) {/
 initialize	./input.coffee	/initialize: (@name) ->/
