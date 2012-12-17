@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function find_nested_classes() {
+  grep -E -R --include '*.rb' \
+    '^[ 	]*(class|module) *([a-zA-Z0-9_]+::)+([a-zA-Z0-9_]+)' . | \
+    sed -E "s/^([^:]*):[ 	]*(class|module)( *)(([a-zA-Z0-9_]+::)+)([a-zA-Z0-9_]+)/\6	\1	\/\2\3\4\6\//"
+
+  # 1 - filename
+  # 2 - class/module
+  # 3 - space
+  # 4 - namespace
+  # 5 - namespace
+  # 6 - class name
+}
+
+find_nested_classes

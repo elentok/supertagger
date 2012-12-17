@@ -18,3 +18,4 @@ function run_test() {
 
 run_test js
 run_test css
+run_test ruby

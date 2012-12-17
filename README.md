@@ -1,7 +1,8 @@
 SuperTagger
 ===========
 
-Generates ctags-compatible tags for javascript, coffeescript, css and scss,
+Generates ctags-compatible tags for javascript, coffeescript, scss, and ruby
+(ctags supports ruby, but supertagger adds some missing tags)
 
 The 'supertagger' command
 --------------------
@@ -61,4 +62,11 @@ SCSS:
 @mixin mixin1 { }
 @mixin mixin2($var1) { }
 
+```
+
+Ruby:
+```ruby
+class Module1::Class1
+module Module1::SubModule
+class Module1::SubModule::Class2
 ```
