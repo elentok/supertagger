@@ -10,8 +10,7 @@ function find_parent_tagfile() {
   path=''
   tagfile=tags
   while [ 1 ]; do
-    path="../$path"
-    abspath=`(cd $path; pwd)`
+    abspath=`(cd ./$path; pwd)`
     if [ "$abspath" == "/" ]; then
       return
     fi
@@ -22,14 +21,15 @@ function find_parent_tagfile() {
       break
     fi
 
-    # search for .git folder
-    if [ -d "$path.git" ]; then
+    # search for .git folder or Gemfile
+    if [[ -d "$path.git" || -e "${path}Gemfile" ]]; then
       TAGFILE="${path}tags"
       break
     fi
+    path="../$path"
   done
 
-  ROOT_PATH=$path
+  ROOT_PATH=$abspath
 }
 
 find_parent_tagfile
