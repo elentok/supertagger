@@ -8,7 +8,7 @@ function run_test() {
   echo "Testing $type"
   (
     cd $DIR
-    ../${type}tagger > /tmp/tagger.output
+    ../bin/${type}tagger > /tmp/tagger.output
     if [ "`diff -q expected-$type-tags /tmp/tagger.output`" != "" ]; then
       vimdiff -R expected-$type-tags /tmp/tagger.output
     fi

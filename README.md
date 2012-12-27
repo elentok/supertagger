@@ -4,8 +4,18 @@ SuperTagger
 Generates ctags-compatible tags for javascript, coffeescript, scss, and ruby
 (ctags supports ruby, but supertagger adds some missing tags)
 
+Vim plugin
+-----------
+This repository can be used as a Vim plugin,
+if you are using Vundle just add the following line to your .vimrc and run :BundleInstall
+
+```vim
+Bundle 'elentok/supertagger'
+```
+
+
 The 'supertagger' command
---------------------
+--------------------------
 
 * looks for an existing "tags" file in this directory or a parent directory
 * if no "tags" file was found, looks for a ".git" folder and creates the "tags" file there
