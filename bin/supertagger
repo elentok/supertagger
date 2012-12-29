@@ -3,6 +3,18 @@
 DIR=$(dirname "${BASH_SOURCE[0]}")
 DIR=$(cd -P $DIR && pwd)
 
+echo "SuperTagger was called with $*" >> /tmp/supertagger.log
+
+function create_tags_for_single_file() {
+  filename="$1"
+  ext="${filename##*.}"
+  if [ -e "$DIR/${ext}tagger" ]; then
+    $DIR/${ext}tagger $1
+  else
+    ctags -f - $1
+  fi
+}
+
 ROOT_PATH="."
 TAGFILE=tags
 
@@ -32,15 +44,25 @@ function find_parent_tagfile() {
   ROOT_PATH=$abspath
 }
 
-find_parent_tagfile
+function create_tags_for_directory() {
 
-echo "Generating tags in `(cd $ROOT_PATH; pwd)`/tags"
+  find_parent_tagfile
 
-(
-  cd $ROOT_PATH
-  ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=*.js -f - .
-  $DIR/jstagger 
-  $DIR/coffeetagger 
-  $DIR/csstagger 
-  $DIR/rubytagger 
-) | sort > $TAGFILE
+  echo "Generating tags in `(cd $ROOT_PATH; pwd)`/tags"
+
+  (
+    cd $ROOT_PATH
+    ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --exclude=*.js -f - .
+    $DIR/jstagger 
+    $DIR/coffeetagger 
+    $DIR/csstagger 
+    $DIR/rubytagger 
+  ) | sort > $TAGFILE
+
+}
+
+if [ "$1" != "" ]; then
+  create_tags_for_single_file $1
+else
+  create_tags_for_directory
+fi

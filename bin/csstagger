@@ -1,7 +1,13 @@
 #!/bin/bash
 
+selector=$1
+
+if [ "$selector" == "" ]; then
+  selector=-R\ --include\ '*.scss'\ .
+fi
+
 function find_mixins() {
-  grep -R --include '*.scss' '^[ 	]*@mixin ' . | \
+  grep -H '^[ 	]*@mixin ' $selector | \
     sed -E "s/^([^:]*): *(@mixin +)([a-zA-Z0-9\-]+)(.*)$/\3	\1	\/\2\3\4\//"
 
   # 1 - filename

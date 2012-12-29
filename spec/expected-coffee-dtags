@@ -1,0 +1,14 @@
+Animal	input.coffee	/^Animal = Backbone.extend$/;"	c
+Cat	input.coffee	/^Animal.Cat = Animal.extend$/;"	c
+CoffeeStaticClass	input.coffee	/^Namespace3.CoffeeStaticClass =$/;"	o
+Dog	input.coffee	/^Animal.Dog = Animal.extend$/;"	c
+ExtendingClass	input.coffee	/^class Namespace1.ExtendingClass extends SomeClass$/;"	c
+SomeClass	input.coffee	/^class SomeClass$/;"	c
+SomeOtherClass	input.coffee	/^class Namespace1.SomeOtherClass$/;"	c
+coffeeStaticMethod	input.coffee	/^AnObject.coffeeStaticMethod = ->$/;"	m
+initialize	input.coffee	/^  initialize: (@name) ->$/;"	m
+method1	input.coffee	/^  method1: ->$/;"	m
+method2	input.coffee	/^  method2: =>$/;"	m
+method3	input.coffee	/^  method3: ->$/;"	m
+method4	input.coffee	/^  method4: ->$/;"	m
+speak	input.coffee	/^  speak: ->$/;"	m

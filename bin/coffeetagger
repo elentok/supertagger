@@ -1,22 +1,29 @@
 #!/bin/bash
 
+selector=$1
+
+if [ "$selector" == "" ]; then
+  selector=-R\ --include\ '*.coffee'\ .
+fi
+
 function find_extended_classes() {
-  grep -R --include '*.coffee' \
-    '^[ 	]*[a-zA-Z_\.0-9]\+ = *[a-zA-Z0-9_\.]\+\.extend' . | \
-    sed -E "s/^([^:]*):[ 	]*((.*\.)*)([^=\. ]*)( *= *)([^\( ]*).*$/\4	\1	\/\3\4\5\6\//"
+  grep -Hn \
+    '^[ 	]*[a-zA-Z_\.0-9]\+ = *[a-zA-Z0-9_\.]\+\.extend' $selector | \
+    sed -E "s/^([^:]*):([0-9]+):[ 	]*((.*\.)*)([^=\. ]*)( *= *)([^\( ]*).*$/\5	\1	\/\4\5\6\7\/;\" line:\2/"
 
   # 1 - filename
-  # 2 - namespace
+  # 2 - line number
   # 3 - namespace
-  # 4 - class name
-  # 5 - space ( = )
-  # 6 - base class
+  # 4 - namespace
+  # 5 - class name
+  # 6 - space ( = )
+  # 7 - base class
 }
 
 function find_coffee_classes() {
-  grep -R --include '*.coffee' \
-    '^[ 	]*class[ 	]\+[a-zA-Z_\.0-9]\+' . | \
-    sed -E "s/^([^:]*):[ 	]*(class[ 	]+)((.*\.)*)([^=\. ]*)(.*)$/\5	\1	\/\2\4\5\6\//"
+  grep -Hn \
+    '^[ 	]*class[ 	]\+[a-zA-Z_\.0-9]\+' $selector | \
+    sed -E "s/^([^:]*):[ 	]*(class[ 	]+)((.*\.)*)([^=\. ]*)(.*)$/\5	\1	\/\2\4\5\6\/;\" /"
 
   # 1 - filename
   # 2 - class
@@ -27,9 +34,9 @@ function find_coffee_classes() {
 }
 
 function find_coffee_methods() {
-  grep -R --include '*.coffee' -E \
-    '^[ 	]*[a-zA-Z_\.0-9]+ *[=:] *(\([^\)]+\))? *[=-]>' . | \
-    sed -E "s/^([^:]*):[ 	]*(.*\.)?([^=:\. ]+)( *[:=] *)(.*)$/\3	\1	\/\2\3\4\5\//"
+  grep -Hn -E \
+    '^[ 	]*[a-zA-Z_\.0-9]+ *[=:] *(\([^\)]+\))? *[=-]>' $selector | \
+    sed -E "s/^([^:]*):[ 	]*(.*\.)?([^=:\. ]+)( *[:=] *)(.*)$/\3	\1	\/\2\3\4\5\/;\" /"
 
   # 1 - filename
   # 2 - namespace
@@ -39,9 +46,9 @@ function find_coffee_methods() {
 }
 
 function find_static_coffee_objects() {
-  grep -R --include '*.coffee' -E \
-    '^[A-Z][a-zA-Z_\.0-9]* *= *$' . | \
-    sed -E "s/^([^:]*):[ 	]*(.*\.)?([^=:\. ]+)( *=) *$/\3	\1	\/\2\3\4\//"
+  grep -Hn -E \
+    '^[A-Z][a-zA-Z_\.0-9]* *= *$' $selector | \
+    sed -E "s/^([^:]*):[ 	]*(.*\.)?([^=:\. ]+)( *=) *$/\3	\1	\/\2\3\4\/;\" /"
   
   # 1 - filename
   # 2 - namespace
@@ -49,7 +56,6 @@ function find_static_coffee_objects() {
   # 4 - space
   # 5 - definition
 }
-
 
 find_extended_classes
 find_static_coffee_objects
