@@ -28,9 +28,9 @@ function run_dtags_test() {
 }
 
 
+run_dtags_test js
 run_dtags_test coffee
 
-run_test js
 run_test css
 run_test ruby
 

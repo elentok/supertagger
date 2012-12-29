@@ -1,6 +1,0 @@
-Class1	./input.js	/Class1 = Backbone.extend/
-Class2	./input.js	/Namespace1.Class2 = L.Class.extend/
-JsStaticClass	./input.js	/Namespace3.JsStaticClass = {/
-initialize	./input.js	/initialize: function() {/
-doSomething	./input.js	/doSomething: function(someValue) {/
-jsStaticMethod	./input.js	/Class1.jsStaticMethod = function() {/
