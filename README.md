@@ -21,6 +21,21 @@ The 'supertagger' command
 * if no "tags" file was found, looks for a ".git" folder and creates the "tags" file there
 * The 'tagger' command also calls ctags to generate tags for Ruby code and everything else
 
+Ignoring certain files and directories
+--------------------------------------
+
+In the root of your project create a file called ".tagsignore"
+where each line is a pattern to exclude.
+
+For example:
+
+```
+node_modules/*
+components/*
+tmp/*
+```
+
+
 Supported formats
 -----------------
 

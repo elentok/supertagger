@@ -1,6 +1,11 @@
 #!/bin/bash
 
-ctags \
+ignore=""
+if [ -e '.tagsignore' ]; then
+  ignore="--exclude=@.tagsignore"
+fi
+
+ctags $ignore \
   --langdef=coffee \
   --langmap=coffee:.coffee \
   --regex-coffee='/^[[:space:]]*([a-zA-Z_0-9\.]+\.)?([a-zA-Z_0-9]+)[[:space:]]*=[[:space:]]*([a-zA-Z_0-9\.]+)\.extend/\2/c,class/' \

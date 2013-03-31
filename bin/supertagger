@@ -3,8 +3,6 @@
 DIR=$(dirname "${BASH_SOURCE[0]}")
 DIR=$(cd -P $DIR && pwd)
 
-echo "SuperTagger was called with $*" >> /tmp/supertagger.log
-
 ROOT_PATH="."
 TAGFILE=tags
 
