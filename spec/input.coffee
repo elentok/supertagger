@@ -12,6 +12,10 @@ Animal.Cat = Animal.extend
   speak: ->
     console.log "meow"
 
+Animal.Tiger = OpenLayers.Class
+  speak: ->
+    console.log "meow"
+
 class SomeClass
   method1: ->
 

@@ -5,6 +5,7 @@ Dog	input.coffee	/^Animal.Dog = Animal.extend$/;"	c
 ExtendingClass	input.coffee	/^class Namespace1.ExtendingClass extends SomeClass$/;"	c
 SomeClass	input.coffee	/^class SomeClass$/;"	c
 SomeOtherClass	input.coffee	/^class Namespace1.SomeOtherClass$/;"	c
+Tiger	input.coffee	/^Animal.Tiger = OpenLayers.Class$/;"	c
 coffeeStaticMethod	input.coffee	/^AnObject.coffeeStaticMethod = ->$/;"	m
 initialize	input.coffee	/^  initialize: (@name) ->$/;"	m
 method1	input.coffee	/^  method1: ->$/;"	m

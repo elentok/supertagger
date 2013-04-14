@@ -14,3 +14,6 @@ Class1.jsStaticMethod = function() {
 Namespace3.JsStaticClass = {
   value1: 123
 }
+
+Namespace2.Class3 = OpenLayers.Class({
+});
