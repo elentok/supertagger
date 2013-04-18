@@ -17,3 +17,6 @@ Namespace3.JsStaticClass = {
 
 Namespace2.Class3 = OpenLayers.Class({
 });
+
+Namespace2.Class4 = OL.Class({
+});

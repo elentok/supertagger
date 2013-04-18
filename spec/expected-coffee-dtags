@@ -3,6 +3,7 @@ Cat	input.coffee	/^Animal.Cat = Animal.extend$/;"	c
 CoffeeStaticClass	input.coffee	/^Namespace3.CoffeeStaticClass =$/;"	o
 Dog	input.coffee	/^Animal.Dog = Animal.extend$/;"	c
 ExtendingClass	input.coffee	/^class Namespace1.ExtendingClass extends SomeClass$/;"	c
+Lion	input.coffee	/^Animal.Lion = OL.Class$/;"	c
 SomeClass	input.coffee	/^class SomeClass$/;"	c
 SomeOtherClass	input.coffee	/^class Namespace1.SomeOtherClass$/;"	c
 Tiger	input.coffee	/^Animal.Tiger = OpenLayers.Class$/;"	c

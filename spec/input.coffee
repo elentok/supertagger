@@ -16,6 +16,8 @@ Animal.Tiger = OpenLayers.Class
   speak: ->
     console.log "meow"
 
+Animal.Lion = OL.Class
+
 class SomeClass
   method1: ->
 

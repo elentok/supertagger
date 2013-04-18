@@ -1,6 +1,7 @@
 Class1	input.js	/^Class1 = Backbone.extend({$/;"	c
 Class2	input.js	/^Namespace1.Class2 = L.Class.extend({$/;"	c
 Class3	input.js	/^Namespace2.Class3 = OpenLayers.Class({$/;"	c
+Class4	input.js	/^Namespace2.Class4 = OL.Class({$/;"	c
 JsStaticClass	input.js	/^Namespace3.JsStaticClass = {$/;"	o
 doSomething	input.js	/^  doSomething: function(someValue) {$/;"	m
 initialize	input.js	/^  initialize: function() {$/;"	m
