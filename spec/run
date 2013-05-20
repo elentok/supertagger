@@ -15,21 +15,21 @@ function run_test() {
   )
 }
 
-function run_dtags_test() {
+function run_ctags_test() {
   type=$1
   echo "Testing $type"
   (
     cd $DIR
-    ../bin/dtags -f - input.$type > /tmp/tagger.output
-    if [ "`diff -q expected-$type-dtags /tmp/tagger.output`" != "" ]; then
-      vimdiff -R expected-$type-dtags /tmp/tagger.output
+    ctags -f - input.$type > /tmp/tagger.output
+    if [ "`diff -q expected-$type-ctags /tmp/tagger.output`" != "" ]; then
+      vimdiff -R expected-$type-ctags /tmp/tagger.output
     fi
   )
 }
 
 
-run_dtags_test js
-run_dtags_test coffee
+run_ctags_test js
+run_ctags_test coffee
 
 run_test css
 run_test ruby
