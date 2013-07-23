@@ -46,7 +46,7 @@ function create_tags_for_directory() {
   (
     cd $ROOT_PATH
 
-    ctags $ignore -R --c++-kinds=+p --fields=+iaS --extra=+q -f - .
+    ctags $ignore -R --c++-kinds=+p --fields=+ilaS --extra=+q -f - .
     $DIR/csstagger 
     $DIR/rubytagger 
   ) | sort > $TAGFILE
